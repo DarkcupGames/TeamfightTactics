@@ -11,7 +11,7 @@ public class GamePlayController : MonoBehaviour
 {
     public Map map;
     public InputController inputController;
-    public GameData gameData;
+    public GameDataAutoChess gameData;
     public UIController uIController;
     public AIopponent aIopponent;
     public ChampionShop championShop;

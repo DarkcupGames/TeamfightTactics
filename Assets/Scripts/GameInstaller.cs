@@ -8,16 +8,20 @@ public class GameInstaller : MonoInstaller
     [Inject] private GamePlayController gamePlayController;
     public override void InstallBindings()
     {
-        Container.Bind<GamePlayController>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<Gameplay>().FromComponentInHierarchy().AsSingle();
         Container.Bind<GameData>().FromComponentInHierarchy().AsSingle();
-        Container.BindFactory<GamePlayController, FactoryGamePlayController>().FromComponentInNewPrefabResource(nameof(GamePlayController)).AsSingle();
+        Container.BindFactory<Gameplay, FactoryGamePlay>().FromComponentInNewPrefabResource(nameof(GamePlayController)).AsSingle();
 
     }
+    public class Settings
+    {
+        public GameObject minionPrefab;
+    }
 }
-public class FactoryGamePlayController : PlaceholderFactory<GamePlayController>
+public class FactoryGamePlay : PlaceholderFactory<Gameplay>
 {
 }
-public interface IGamePlayController
+public interface IGamePlay
 {
     GameStage CurrentGameStage { get; set; }
     GameObject[,] GridChampionsArray { get; set; }

@@ -18,7 +18,7 @@ namespace Zenject.Asteroids
     //    object composition root separately at runtime
     //
     // Uncomment if you want to add alternative game settings
-    [CreateAssetMenu(menuName = "Asteroids/Game Settings")]
+    //[CreateAssetMenu(menuName = "Asteroids/Game Settings")]
     public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInstaller>
     {
         public ShipSettings Ship;
