@@ -1,18 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
-public enum GameStage { Preparation, Combat, Loss };
+public enum GameStage { Preparation, Combat, Loss};
 
 /// <summary>
 /// Controlls most of the game logic and player interactions
 /// </summary>
-public class GamePlayController : MonoBehaviour, IGamePlayController
+public class GamePlayController : MonoBehaviour
 {
     public Map map;
     public InputController inputController;
-    [Inject] private GameData gameData;
+    public GameData gameData;
     public UIController uIController;
     public AIopponent aIopponent;
     public ChampionShop championShop;
@@ -22,8 +21,9 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
     [HideInInspector]
     public GameObject[] oponentChampionInventoryArray;
     [HideInInspector]
-    public GameObject[,] GridChampionsArray { get; set; }
-    public GameStage CurrentGameStage { get; set; }
+    public GameObject[,] gridChampionsArray;
+
+    public GameStage currentGameStage;
     private float timer = 0;
 
     ///The time available to place champions
@@ -45,20 +45,20 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
     public int timerDisplay = 0;
 
     public Dictionary<ChampionType, int> championTypeCount;
-    public List<ChampionBonus> ActiveBonusList { get; set; }
+    public List<ChampionBonus> activeBonusList;
 
     /// Start is called before the first frame update
     void Start()
     {
         //set starting gamestage
-        CurrentGameStage = GameStage.Preparation;
+        currentGameStage = GameStage.Preparation;
 
         //init arrays
         ownChampionInventoryArray = new GameObject[Map.inventorySize];
         oponentChampionInventoryArray = new GameObject[Map.inventorySize];
-        GridChampionsArray = new GameObject[Map.hexMapSizeX, Map.hexMapSizeZ / 2];
+        gridChampionsArray = new GameObject[Map.hexMapSizeX, Map.hexMapSizeZ / 2];
 
-
+        
         uIController.UpdateUI();
     }
 
@@ -66,11 +66,11 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
     void Update()
     {
         //manage game stage
-        if (CurrentGameStage == GameStage.Preparation)
+        if (currentGameStage == GameStage.Preparation)
         {
             timer += Time.deltaTime;
 
-            timerDisplay = (int)(PreparationStageDuration - timer);
+            timerDisplay = (int) (PreparationStageDuration - timer);
 
             uIController.UpdateTimerText();
 
@@ -81,7 +81,7 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
                 OnGameStageComplate();
             }
         }
-        else if (CurrentGameStage == GameStage.Combat)
+        else if (currentGameStage == GameStage.Combat)
         {
             timer += Time.deltaTime;
 
@@ -97,7 +97,7 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
     }
 
 
-
+  
 
     /// <summary>
     /// Adds champion from shop to inventory
@@ -108,7 +108,7 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
         int emptyIndex = -1;
         for (int i = 0; i < ownChampionInventoryArray.Length; i++)
         {
-            if (ownChampionInventoryArray[i] == null)
+            if(ownChampionInventoryArray[i] == null)
             {
                 emptyIndex = i;
                 break;
@@ -134,7 +134,7 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
 
         //set grid position
         championController.SetGridPosition(Map.GRIDTYPE_OWN_INVENTORY, emptyIndex, -1);
-
+        
         //set position and rotation
         championController.SetWorldPosition();
         championController.SetWorldRotation();
@@ -143,11 +143,11 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
         //store champion in inventory array
         StoreChampionInArray(Map.GRIDTYPE_OWN_INVENTORY, map.ownTriggerArray[emptyIndex].gridX, -1, championPrefab);
 
+       
 
-
-
+       
         //only upgrade when in preparation stage
-        if (CurrentGameStage == GameStage.Preparation)
+        if(currentGameStage == GameStage.Preparation)
             TryUpgradeChampion(champion); //upgrade champion
 
 
@@ -197,10 +197,10 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
             for (int z = 0; z < Map.hexMapSizeZ / 2; z++)
             {
                 //there is a champion
-                if (GridChampionsArray[x, z] != null)
+                if (gridChampionsArray[x, z] != null)
                 {
                     //get character
-                    ChampionController championController = GridChampionsArray[x, z].GetComponent<ChampionController>();
+                    ChampionController championController = gridChampionsArray[x, z].GetComponent<ChampionController>();
 
                     //check if is the same type of champion that we are buying
                     if (championController.champion == champion)
@@ -257,25 +257,24 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
     private GameObject draggedChampion = null;
     private TriggerInfo dragStartTrigger = null;
 
-
     /// <summary>
     /// When we start dragging champions on map
     /// </summary>
     public void StartDrag()
     {
-        if (CurrentGameStage != GameStage.Preparation)
+        if (currentGameStage != GameStage.Preparation)
             return;
 
         //get trigger info
         TriggerInfo triggerinfo = inputController.triggerInfo;
         //if mouse cursor on trigger
         if (triggerinfo != null)
-        {
+        { 
             dragStartTrigger = triggerinfo;
 
             GameObject championGO = GetChampionFromTriggerInfo(triggerinfo);
-
-            if (championGO != null)
+            
+            if(championGO != null)
             {
                 //show indicators
                 map.ShowIndicators();
@@ -302,8 +301,8 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
         int championsOnField = GetChampionCountOnHexGrid();
 
 
-        if (draggedChampion != null)
-        {
+         if (draggedChampion != null)
+         {
             //set dragged
             draggedChampion.GetComponent<ChampionController>().IsDragged = false;
 
@@ -328,7 +327,7 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
                 else
                 {
                     //we are adding to combat field
-                    if (triggerinfo.gridType == Map.GRIDTYPE_HEXA_MAP)
+                    if(triggerinfo.gridType == Map.GRIDTYPE_HEXA_MAP)
                     {
                         //only add if there is a free spot or we adding from combatfield
                         if (championsOnField < currentChampionLimit || dragStartTrigger.gridType == Map.GRIDTYPE_HEXA_MAP)
@@ -343,7 +342,7 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
                                 championsOnField++;
                         }
                     }
-                    else if (triggerinfo.gridType == Map.GRIDTYPE_OWN_INVENTORY)
+                    else if(triggerinfo.gridType == Map.GRIDTYPE_OWN_INVENTORY)
                     {
                         //remove champion from dragged position
                         RemoveChampionFromArray(dragStartTrigger.gridType, dragStartTrigger.gridX, dragStartTrigger.gridZ);
@@ -351,32 +350,32 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
                         //add champion to dragged position
                         StoreChampionInArray(triggerinfo.gridType, triggerinfo.gridX, triggerinfo.gridZ, draggedChampion);
 
-                        if (dragStartTrigger.gridType == Map.GRIDTYPE_HEXA_MAP)
+                        if(dragStartTrigger.gridType == Map.GRIDTYPE_HEXA_MAP)
                             championsOnField--;
                     }
 
-
-
+                   
+   
                 }
 
 
-
-
+              
+                  
             }
 
 
             CalculateBonuses();
-
+   
             currentChampionCount = GetChampionCountOnHexGrid();
 
             //update ui
             uIController.UpdateUI();
-
+            
 
             draggedChampion = null;
         }
 
-
+       
     }
 
 
@@ -399,7 +398,7 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
         }
         else if (triggerinfo.gridType == Map.GRIDTYPE_HEXA_MAP)
         {
-            championGO = GridChampionsArray[triggerinfo.gridX, triggerinfo.gridZ];
+            championGO = gridChampionsArray[triggerinfo.gridX, triggerinfo.gridZ];
         }
 
         return championGO;
@@ -419,10 +418,10 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
         if (gridType == Map.GRIDTYPE_OWN_INVENTORY)
         {
             ownChampionInventoryArray[gridX] = champion;
-        }
+        }    
         else if (gridType == Map.GRIDTYPE_HEXA_MAP)
         {
-            GridChampionsArray[gridX, gridZ] = champion;
+            gridChampionsArray[gridX, gridZ] = champion;
         }
     }
 
@@ -438,7 +437,7 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
         }
         else if (type == Map.GRIDTYPE_HEXA_MAP)
         {
-            GridChampionsArray[gridX, gridZ] = null;
+            gridChampionsArray[gridX, gridZ] = null;
         }
     }
 
@@ -454,7 +453,7 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
             for (int z = 0; z < Map.hexMapSizeZ / 2; z++)
             {
                 //there is a champion
-                if (GridChampionsArray[x, z] != null)
+                if (gridChampionsArray[x, z] != null)
                 {
                     count++;
                 }
@@ -477,12 +476,12 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
             for (int z = 0; z < Map.hexMapSizeZ / 2; z++)
             {
                 //there is a champion
-                if (GridChampionsArray[x, z] != null)
+                if (gridChampionsArray[x, z] != null)
                 {
                     //get champion
-                    Champion c = GridChampionsArray[x, z].GetComponent<ChampionController>().champion;
+                    Champion c = gridChampionsArray[x, z].GetComponent<ChampionController>().champion;
 
-                    if (championTypeCount.ContainsKey(c.type1))
+                    if(championTypeCount.ContainsKey(c.type1))
                     {
                         int cCount = 0;
                         championTypeCount.TryGetValue(c.type1, out cCount);
@@ -514,7 +513,7 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
             }
         }
 
-        ActiveBonusList = new List<ChampionBonus>();
+        activeBonusList = new List<ChampionBonus>();
 
         foreach (KeyValuePair<ChampionType, int> m in championTypeCount)
         {
@@ -523,7 +522,7 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
             //have enough champions to get bonus
             if (m.Value >= championBonus.championCount)
             {
-                ActiveBonusList.Add(championBonus);
+                activeBonusList.Add(championBonus);
             }
         }
 
@@ -539,10 +538,10 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
             for (int z = 0; z < Map.hexMapSizeZ / 2; z++)
             {
                 //there is a champion
-                if (GridChampionsArray[x, z] != null)
+                if (gridChampionsArray[x, z] != null)
                 {
                     //get character
-                    ChampionController championController = GridChampionsArray[x, z].GetComponent<ChampionController>();
+                    ChampionController championController = gridChampionsArray[x, z].GetComponent<ChampionController>();
 
                     //reset
                     championController.Reset();
@@ -558,12 +557,12 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
     private void OnGameStageComplate()
     {
         //tell ai that stage complated
-        aIopponent.OnGameStageComplate(CurrentGameStage);
+        aIopponent.OnGameStageComplate(currentGameStage);
 
-        if (CurrentGameStage == GameStage.Preparation)
+        if (currentGameStage == GameStage.Preparation)
         {
             //set new game stage
-            CurrentGameStage = GameStage.Combat;
+            currentGameStage = GameStage.Combat;
 
             //show indicators
             map.HideIndicators();
@@ -599,10 +598,10 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
                 for (int z = 0; z < Map.hexMapSizeZ / 2; z++)
                 {
                     //there is a champion
-                    if (GridChampionsArray[x, z] != null)
+                    if (gridChampionsArray[x, z] != null)
                     {
                         //get character
-                        ChampionController championController = GridChampionsArray[x, z].GetComponent<ChampionController>();
+                        ChampionController championController = gridChampionsArray[x, z].GetComponent<ChampionController>();
 
                         //start combat
                         championController.OnCombatStart();
@@ -615,13 +614,13 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
             //check if we start with 0 champions
             if (IsAllChampionDead())
                 EndRound();
-
+           
 
         }
-        else if (CurrentGameStage == GameStage.Combat)
+        else if (currentGameStage == GameStage.Combat)
         {
             //set new game stage
-            CurrentGameStage = GameStage.Preparation;
+            currentGameStage = GameStage.Preparation;
 
             //show timer text
             uIController.SetTimerTextActive(true);
@@ -648,11 +647,11 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
             //check if we have lost
             if (currentHP <= 0)
             {
-                CurrentGameStage = GameStage.Loss;
+                currentGameStage = GameStage.Loss;
                 uIController.ShowLossScreen();
-
+             
             }
-
+            
         }
     }
 
@@ -667,7 +666,7 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
         //banked gold
         int bank = (int)(currentGold / 10);
 
-
+       
         income += baseGoldIncome;
         income += bank;
 
@@ -683,7 +682,7 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
         if (currentGold < 4)
             return;
 
-        if (currentChampionLimit < 9)
+        if(currentChampionLimit < 9)
         {
             //incrase champion limit
             currentChampionLimit++;
@@ -693,9 +692,9 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
 
             //update ui
             uIController.UpdateUI();
-
+        
         }
-
+      
     }
 
     /// <summary>
@@ -715,8 +714,8 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
     /// </summary>
     public void RestartGame()
     {
-
-
+       
+       
 
         //remove champions
         for (int i = 0; i < ownChampionInventoryArray.Length; i++)
@@ -738,13 +737,13 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
             for (int z = 0; z < Map.hexMapSizeZ / 2; z++)
             {
                 //there is a champion
-                if (GridChampionsArray[x, z] != null)
+                if (gridChampionsArray[x, z] != null)
                 {
                     //get character
-                    ChampionController championController = GridChampionsArray[x, z].GetComponent<ChampionController>();
+                    ChampionController championController = gridChampionsArray[x, z].GetComponent<ChampionController>();
 
                     Destroy(championController.gameObject);
-                    GridChampionsArray[x, z] = null;
+                    gridChampionsArray[x, z] = null;
                 }
 
             }
@@ -753,7 +752,7 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
         //reset stats
         currentHP = 100;
         currentGold = 5;
-        CurrentGameStage = GameStage.Preparation;
+        currentGameStage = GameStage.Preparation;
         currentChampionLimit = 3;
         currentChampionCount = GetChampionCountOnHexGrid();
 
@@ -764,7 +763,7 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
 
         //show hide ui
         uIController.ShowGameScreen();
-
+   
 
     }
 
@@ -804,10 +803,10 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
             for (int z = 0; z < Map.hexMapSizeZ / 2; z++)
             {
                 //there is a champion
-                if (GridChampionsArray[x, z] != null)
+                if (gridChampionsArray[x, z] != null)
                 {
                     //get character
-                    ChampionController championController = GridChampionsArray[x, z].GetComponent<ChampionController>();
+                    ChampionController championController = gridChampionsArray[x, z].GetComponent<ChampionController>();
 
 
                     championCount++;
@@ -826,4 +825,6 @@ public class GamePlayController : MonoBehaviour, IGamePlayController
         return false;
 
     }
+
+
 }

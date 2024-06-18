@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 /// <summary>
 /// Creates and stores champions available, XP and LVL purchase
@@ -9,8 +8,8 @@ using Zenject;
 public class ChampionShop : MonoBehaviour
 {
     public UIController uIController;
-    [Inject] private GamePlayController gamePlayController;
-    [Inject] private GameData gameData;
+    public GamePlayController gamePlayController;
+    public GameData gameData;
 
     ///Array to store available champions to purchase
     private Champion[] availableChampionArray;
@@ -25,7 +24,7 @@ public class ChampionShop : MonoBehaviour
     /// Update is called once per frame
     void Update()
     {
-
+        
     }
 
     /// <summary>
@@ -66,7 +65,7 @@ public class ChampionShop : MonoBehaviour
         }
 
         //decrase gold
-        if (isFree == false)
+        if(isFree == false)
             gamePlayController.currentGold -= 2;
 
         //update ui
@@ -78,10 +77,10 @@ public class ChampionShop : MonoBehaviour
     /// </summary>
     /// <param name="index"></param>
     public void OnChampionFrameClicked(int index)
-    {
+    {    
         bool isSucces = gamePlayController.BuyChampionFromShop(availableChampionArray[index]);
 
-        if (isSucces)
+        if(isSucces)
             uIController.HideChampionFrame(index);
     }
 

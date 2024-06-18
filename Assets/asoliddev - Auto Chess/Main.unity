@@ -570,22 +570,304 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   championsArray:
-  - {fileID: 11400000, guid: 9caf96246987e9b4b82394977a9e4a89, type: 2}
-  - {fileID: 11400000, guid: 1a4801c5512977e47b933d2fb22a399a, type: 2}
-  - {fileID: 11400000, guid: 5681a86ada07bf94b818fb5346cd24d7, type: 2}
-  - {fileID: 11400000, guid: 12f7c78e9c62f644a85f159caafbb364, type: 2}
-  - {fileID: 11400000, guid: bd3a606d049803546a05bf3fabe902eb, type: 2}
-  - {fileID: 11400000, guid: fff40124a919ef74488b1da35f6b232e, type: 2}
-  - {fileID: 11400000, guid: 71348b8d61dcf1b49ad0cde9886ed8e1, type: 2}
-  - {fileID: 11400000, guid: 5cf63394b9baea2448068dc4c67f21d0, type: 2}
-  - {fileID: 11400000, guid: 21e6506da1fccea41af3a2366cdab15e, type: 2}
+  - prefab: {fileID: 0}
+    attackProjectile: {fileID: 0}
+    uiname: 
+    cost: 0
+    type1:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    type2:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    health: 100
+    damage: 10
+    attackRange: 1
+  - prefab: {fileID: 0}
+    attackProjectile: {fileID: 0}
+    uiname: 
+    cost: 0
+    type1:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    type2:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    health: 100
+    damage: 10
+    attackRange: 1
+  - prefab: {fileID: 0}
+    attackProjectile: {fileID: 0}
+    uiname: 
+    cost: 0
+    type1:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    type2:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    health: 100
+    damage: 10
+    attackRange: 1
+  - prefab: {fileID: 0}
+    attackProjectile: {fileID: 0}
+    uiname: 
+    cost: 0
+    type1:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    type2:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    health: 100
+    damage: 10
+    attackRange: 1
+  - prefab: {fileID: 0}
+    attackProjectile: {fileID: 0}
+    uiname: 
+    cost: 0
+    type1:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    type2:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    health: 100
+    damage: 10
+    attackRange: 1
+  - prefab: {fileID: 0}
+    attackProjectile: {fileID: 0}
+    uiname: 
+    cost: 0
+    type1:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    type2:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    health: 100
+    damage: 10
+    attackRange: 1
+  - prefab: {fileID: 0}
+    attackProjectile: {fileID: 0}
+    uiname: 
+    cost: 0
+    type1:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    type2:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    health: 100
+    damage: 10
+    attackRange: 1
+  - prefab: {fileID: 0}
+    attackProjectile: {fileID: 0}
+    uiname: 
+    cost: 0
+    type1:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    type2:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    health: 100
+    damage: 10
+    attackRange: 1
+  - prefab: {fileID: 0}
+    attackProjectile: {fileID: 0}
+    uiname: 
+    cost: 0
+    type1:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    type2:
+      displayName: name
+      icon: {fileID: 0}
+      championBonus:
+        championCount: 0
+        championBonusType: 0
+        bonusTarget: 0
+        bonusValue: 0
+        duration: 0
+        effectPrefab: {fileID: 0}
+    health: 100
+    damage: 10
+    attackRange: 1
   championTypesArray:
-  - {fileID: 11400000, guid: f3e567881c605d247b05775a39e704ed, type: 2}
-  - {fileID: 11400000, guid: 33223db9cedb8c045990cb7a3b0144a3, type: 2}
-  - {fileID: 11400000, guid: 7f6e8df42876b24448eb70be660c3fac, type: 2}
-  - {fileID: 11400000, guid: 3c4644fba6daec0469d795ae15fcc92e, type: 2}
-  - {fileID: 11400000, guid: d190cf551b5d25645b384a58df4154a0, type: 2}
-  - {fileID: 11400000, guid: 200e54a10084f3941a1f2a3354741fb1, type: 2}
+  - displayName: name
+    icon: {fileID: 0}
+    championBonus:
+      championCount: 0
+      championBonusType: 0
+      bonusTarget: 0
+      bonusValue: 0
+      duration: 0
+      effectPrefab: {fileID: 0}
+  - displayName: name
+    icon: {fileID: 0}
+    championBonus:
+      championCount: 0
+      championBonusType: 0
+      bonusTarget: 0
+      bonusValue: 0
+      duration: 0
+      effectPrefab: {fileID: 0}
+  - displayName: name
+    icon: {fileID: 0}
+    championBonus:
+      championCount: 0
+      championBonusType: 0
+      bonusTarget: 0
+      bonusValue: 0
+      duration: 0
+      effectPrefab: {fileID: 0}
+  - displayName: name
+    icon: {fileID: 0}
+    championBonus:
+      championCount: 0
+      championBonusType: 0
+      bonusTarget: 0
+      bonusValue: 0
+      duration: 0
+      effectPrefab: {fileID: 0}
+  - displayName: name
+    icon: {fileID: 0}
+    championBonus:
+      championCount: 0
+      championBonusType: 0
+      bonusTarget: 0
+      bonusValue: 0
+      duration: 0
+      effectPrefab: {fileID: 0}
+  - displayName: name
+    icon: {fileID: 0}
+    championBonus:
+      championCount: 0
+      championBonusType: 0
+      bonusTarget: 0
+      bonusValue: 0
+      duration: 0
+      effectPrefab: {fileID: 0}
 --- !u!114 &27158429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2224,7 +2506,6 @@ GameObject:
   - component: {fileID: 227645636}
   - component: {fileID: 227645635}
   - component: {fileID: 227645638}
-  - component: {fileID: 227645639}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2366,50 +2647,6 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!114 &227645639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 227645634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_AllowHDROutput: 1
-  m_UseScreenCoordOverride: 0
-  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
-  m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
 --- !u!1 &229352664 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3930863742160808680, guid: a272a30be38810444ab56078c46aef85,
@@ -14368,83 +14605,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336457483}
   m_CullTransparentMesh: 0
---- !u!1 &1344092410
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1344092412}
-  - component: {fileID: 1344092411}
-  - component: {fileID: 1344092413}
-  m_Layer: 0
-  m_Name: SceneContext
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1344092411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344092410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
-  _monoInstallers:
-  - {fileID: 1344092413}
-  _installerPrefabs: []
-  _autoRun: 1
-  OnPreInstall:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPostInstall:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPreResolve:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPostResolve:
-    m_PersistentCalls:
-      m_Calls: []
-  _parentNewObjectsUnderSceneContext: 0
-  _contractNames: []
-  _parentContractNames: []
---- !u!4 &1344092412
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344092410}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1344092413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344092410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81e502a08d2497a4586510c76f567fd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1344266135
 GameObject:
   m_ObjectHideFlags: 0
@@ -24159,11 +24319,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EventSystem
       objectReference: {fileID: 0}
-    - target: {fileID: 8250556564076521258, guid: 3305eed4e4ae4e3468bb2dcec7f8352a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8250556564076521263, guid: 3305eed4e4ae4e3468bb2dcec7f8352a,
         type: 3}
       propertyPath: m_RootOrder
@@ -24364,4 +24519,3 @@ SceneRoots:
   - {fileID: 129059052}
   - {fileID: 767787648}
   - {fileID: 1702208226}
-  - {fileID: 1344092412}

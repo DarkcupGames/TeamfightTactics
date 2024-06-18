@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 /// <summary>
 /// Controlls player input
 /// </summary>
 public class InputController : MonoBehaviour
 {
-   [Inject] public GamePlayController gamePlayController;
+    public GamePlayController gamePlayController;
 
     //map script
     public Map map;
