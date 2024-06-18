@@ -22,7 +22,7 @@ public interface IGamePlayController
     GameStage CurrentGameStage { get; set; }
     GameObject[,] GridChampionsArray { get; set; }
     List<ChampionBonus> ActiveBonusList { get; set; }
-    bool BuyChampionFromShop(Champion1 champion);
+    bool BuyChampionFromShop(Champion champion);
     void StartDrag();
     void StopDrag();
     void Buylvl();
