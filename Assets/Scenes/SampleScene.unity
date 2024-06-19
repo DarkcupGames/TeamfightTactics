@@ -11681,6 +11681,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1697012320}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1701348048 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5068732569036125764, guid: a272a30be38810444ab56078c46aef85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1138976732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1701348049 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7908081989409550256, guid: a272a30be38810444ab56078c46aef85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1138976732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1701348050 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4361945055993537057, guid: a272a30be38810444ab56078c46aef85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1138976732}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1703451364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15245,6 +15263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2138151886}
+  - component: {fileID: 2138151887}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -15393,6 +15412,32 @@ Transform:
   - {fileID: 2137442904}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2138151887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138151885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9121afd47d7fde74b8cb0e69ea02b7c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownInventoryStartPosition: {fileID: 1701348050}
+  oponentInventoryStartPosition: {fileID: 1701348049}
+  mapStartPosition: {fileID: 1701348048}
+  squareIndicator: {fileID: 7016743858594856686, guid: 81da3851a0172af469a3f8d12bcf7b64,
+    type: 3}
+  hexaIndicator: {fileID: 4717883552673209890, guid: edc3e12f140820c49bf7c994c080e620,
+    type: 3}
+  indicatorDefaultColor: {r: 0, g: 0.5411765, b: 0.6039216, a: 0.78039217}
+  indicatorActiveColor: {r: 0.8980392, g: 0.47843137, b: 0.019607844, a: 0.92156863}
+  ownInventoryGridPositions: []
+  oponentInventoryGridPositions: []
+  ownIndicatorArray: []
+  oponentIndicatorArray: []
+  ownTriggerArray: []
 --- !u!1001 &2142577518
 PrefabInstance:
   m_ObjectHideFlags: 0
