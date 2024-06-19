@@ -9,7 +9,7 @@ public class ChampionShop : MonoBehaviour
 {
     public UIController uIController;
     public GamePlayController gamePlayController;
-    public GameDataAutoChess gameData;
+    public GameData gameData;
 
     ///Array to store available champions to purchase
     private Champion[] availableChampionArray;

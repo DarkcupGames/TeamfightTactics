@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 [CreateAssetMenu(menuName = "Asteroids/GameData")]
-public class GameData : ScriptableObjectInstaller<GameData>
+public class GameDataMinion : ScriptableObjectInstaller<GameDataMinion>
 {
     public GameInstaller.Settings GameInstaller;
     public MinionSettings Minion;

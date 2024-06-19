@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Stores basic Game Data
 /// </summary>
-public class GameDataAutoChess : MonoBehaviour
+public class GameData : MonoBehaviour
 {
     ///Store all available champion, all champions must be assigned from the Editor to the Script GameObject
     public Champion[] championsArray;

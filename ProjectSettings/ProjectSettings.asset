@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: ba8643bb795716c4bb1b6a1c1196520b
+  productGUID: 741618e8177e0f14c80e7e06dd9d2242
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -162,7 +162,6 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.solid.autochess
-    Standalone: com.DefaultCompany.TeamfightTactics
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -855,7 +854,7 @@ PlayerSettings:
   cloudProjectId: 09997a32-da46-4338-8c68-08c1e30ec382
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: TeamfightTactics 2024-06-14_11-00-01
+  projectName: 
   organizationId: kaisne0708
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
