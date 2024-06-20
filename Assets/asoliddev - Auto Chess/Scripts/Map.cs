@@ -8,6 +8,7 @@ public class Map : MonoBehaviour
     public static int GRIDTYPE_OWN_INVENTORY = 0;
     public static int GRIDTYPE_OPONENT_INVENTORY = 1;
     public static int GRIDTYPE_HEXA_MAP = 2;
+    public GridType gridType;
 
     public static int hexMapSizeX = 7;
     public static int hexMapSizeZ = 8;

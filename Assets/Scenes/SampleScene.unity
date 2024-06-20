@@ -340,6 +340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 31376453}
+  - component: {fileID: 31376454}
   m_Layer: 0
   m_Name: AIOponent
   m_TagString: Untagged
@@ -362,6 +363,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 824541979}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &31376454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31376452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfbb72f351b00ba44a00ac0a5d3c7e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minion: {fileID: 1208605064}
 --- !u!1001 &47537715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3851,6 +3865,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8368e87e6f57a8c4286342572efc6a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: 0
+  minion: {fileID: 701327619}
 --- !u!1001 &525314769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5742,7 +5758,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b543447cf4ada1a42a45c19dae865fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1208605064}
+  teamID: 0
+  minionState: 0
+  gridType: 0
+  target: {fileID: 0}
   settings:
     minionName: 
     mana: 0
@@ -5750,13 +5769,13 @@ MonoBehaviour:
     damagePerSecond: 0
     attackDamage: 0
     attackSpeed: 0
-    attackRange: 0
+    attackRange: 4
     attackAreaOfEffect: 0
     skillCastTime: 0
-  minionState: 0
+  aIOpponent: {fileID: 31376454}
+  gameplay: {fileID: 505540932}
   gridPositionX: 0
   gridPositionZ: 0
-  teamID: 0
 --- !u!195 &701327624
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -8583,7 +8602,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b543447cf4ada1a42a45c19dae865fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 701327619}
+  teamID: 1
+  minionState: 0
+  gridType: 0
+  target: {fileID: 0}
   settings:
     minionName: 
     mana: 0
@@ -8591,13 +8613,13 @@ MonoBehaviour:
     damagePerSecond: 0
     attackDamage: 0
     attackSpeed: 0
-    attackRange: 0
+    attackRange: 4
     attackAreaOfEffect: 0
     skillCastTime: 0
-  minionState: 0
+  aIOpponent: {fileID: 31376454}
+  gameplay: {fileID: 505540932}
   gridPositionX: 0
   gridPositionZ: 0
-  teamID: 1
 --- !u!1001 &1211409703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15484,6 +15506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9121afd47d7fde74b8cb0e69ea02b7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridType: 0
   ownInventoryStartPosition: {fileID: 1701348050}
   oponentInventoryStartPosition: {fileID: 1701348049}
   mapStartPosition: {fileID: 1701348048}
