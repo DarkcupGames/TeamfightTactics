@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
+using Zenject.Asteroids;
 
-public class Gameplay : MonoBehaviour
+public class Gameplay : MonoInstaller
 {
     [SerializeField] private GameState gameState;
     [SerializeField] public GameObject minion;
@@ -14,7 +16,9 @@ public class Gameplay : MonoBehaviour
         gridMinionsArray = new GameObject[Map.hexMapSizeX, Map.hexMapSizeZ / 2];
         gridMinionsArray[0, 0] = minion;
     }
-
+    public class FactoryGamePlay : PlaceholderFactory<Gameplay>
+    {
+    }
 }
 
 public enum TeamID

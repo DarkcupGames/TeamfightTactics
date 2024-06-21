@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,21 +6,19 @@ using Zenject;
 
 public class GameInstaller : MonoInstaller
 {
-    [Inject] private GamePlayController gamePlayController;
+    [Inject] private Settings settings = null;
     public override void InstallBindings()
     {
         Container.Bind<Gameplay>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<GameData>().FromComponentInHierarchy().AsSingle();
-        Container.BindFactory<Gameplay, FactoryGamePlay>().FromComponentInNewPrefabResource(nameof(GamePlayController)).AsSingle();
-
+        Container.Bind<AIOpponent>().FromComponentInHierarchy().AsSingle();
+        Container.BindFactory<Minion.Settings, Minion, Minion.Factory>().FromComponentInNewPrefab(settings.minionPrefab)
+            .WithGameObjectName(settings.minionPrefab.name);
     }
+    [Serializable]
     public class Settings
     {
         public GameObject minionPrefab;
     }
-}
-public class FactoryGamePlay : PlaceholderFactory<Gameplay>
-{
 }
 public interface IGamePlay
 {

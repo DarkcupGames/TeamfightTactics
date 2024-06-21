@@ -1,8 +1,6 @@
 using System;
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
 using Zenject;
 
 public class Minion : MonoBehaviour
@@ -14,8 +12,8 @@ public class Minion : MonoBehaviour
     [SerializeField] private Settings settings;
 
     private NavMeshAgent navMeshAgent;
-    [SerializeField] private AIOpponent aIOpponent;
-    [SerializeField] private Gameplay gameplay;
+    [Inject] private AIOpponent aIOpponent;
+    [Inject] private Gameplay gameplay;
     private Map map;
 
 
@@ -23,10 +21,15 @@ public class Minion : MonoBehaviour
     public int gridPositionX = 0;
     public int gridPositionZ = 0;
 
+    [Inject]
+    public void Construct(Settings settings)
+    {
+        this.settings = settings;
+        navMeshAgent = gameObject.AddComponent<NavMeshAgent>();
+    }
 
     private void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.isStopped = true;
 
     }
@@ -49,6 +52,10 @@ public class Minion : MonoBehaviour
                         Debug.Log("Attack");
                         minionState = MinionState.MINION_STATE_ATTACKING;
                         navMeshAgent.isStopped = true;
+                    }
+                    else
+                    {
+                        navMeshAgent.destination = target.transform.position;
                     }
                 }
             }
@@ -193,5 +200,8 @@ public class Minion : MonoBehaviour
         public int attackRange;
         public int attackAreaOfEffect;
         public float skillCastTime;
+    }
+    public class Factory : PlaceholderFactory<Settings, Minion>
+    {
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class GameDataMinion : ScriptableObjectInstaller<GameDataMinion>
 {
     public GameInstaller.Settings GameInstaller;
     public MinionSettings Minion;
+    [Serializable]
     public class MinionSettings
     {
         public Minion.Settings General;
