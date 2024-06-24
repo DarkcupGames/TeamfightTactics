@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b7ae6c485a1c94994ee888c3e3845b, type: 3}
+  m_Name: Data 1
+  m_EditorClassIdentifier: 
+  Minion:
+    GameInstaller:
+      minionPrefab: {fileID: 1997296248483302, guid: 9984be23625843a48a44d88aae5669f2,
+        type: 3}
+    General:
+      minionName: 
+      mana: 0
+      health: 0
+      damagePerSecond: 0
+      attackDamage: 0
+      attackSpeed: 0
+      attackRange: 0
+      attackAreaOfEffect: 0
+      skillCastTime: 0

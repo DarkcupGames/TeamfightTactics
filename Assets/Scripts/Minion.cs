@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -25,11 +25,11 @@ public class Minion : MonoBehaviour
     public void Construct(Settings settings)
     {
         this.settings = settings;
-        navMeshAgent = gameObject.AddComponent<NavMeshAgent>();
     }
 
     private void Start()
     {
+        navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.isStopped = true;
 
     }
@@ -201,7 +201,8 @@ public class Minion : MonoBehaviour
         public int attackAreaOfEffect;
         public float skillCastTime;
     }
-    public class Factory : PlaceholderFactory<Settings, Minion>
+    public class Factory : PlaceholderFactory<Minion>
     {
+
     }
 }

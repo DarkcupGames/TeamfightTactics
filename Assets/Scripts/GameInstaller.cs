@@ -1,18 +1,28 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
 
-public class GameInstaller : MonoInstaller
+public class GameInstaller : MonoInstaller<GameInstaller>
 {
-    [Inject] private Settings settings = null;
+    private Settings settings;
+
     public override void InstallBindings()
     {
         Container.Bind<Gameplay>().FromComponentInHierarchy().AsSingle();
         Container.Bind<AIOpponent>().FromComponentInHierarchy().AsSingle();
-        Container.BindFactory<Minion.Settings, Minion, Minion.Factory>().FromComponentInNewPrefab(settings.minionPrefab)
-            .WithGameObjectName(settings.minionPrefab.name);
+
+        Container.BindFactory<Minion, Minion.Factory>()
+                  .FromComponentInNewPrefab(settings.minionPrefab)
+                  .WithGameObjectName("Minion")
+                  .AsTransient();
+    }
+    [Inject]
+    public void Construct(Settings settings)
+    {
+        this.settings = settings;
     }
     [Serializable]
     public class Settings

@@ -5,12 +5,9 @@ using Zenject;
 
 public class MinionSpawner : MonoBehaviour
 {
-    [Inject]
-    Minion.Factory minionFactory;
-    [Inject]
-    Minion.Settings settings;
+    [Inject] private Minion.Factory minionFactory;
     private void Start()
     {
-        minionFactory.Create(settings);
+        minionFactory.Create();
     }
 }

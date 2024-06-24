@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-using Zenject.Asteroids;
 
 public class Gameplay : MonoInstaller
 {
@@ -15,9 +14,6 @@ public class Gameplay : MonoInstaller
         gameState = GameState.GAME_STATE_WAITING;
         gridMinionsArray = new GameObject[Map.hexMapSizeX, Map.hexMapSizeZ / 2];
         gridMinionsArray[0, 0] = minion;
-    }
-    public class FactoryGamePlay : PlaceholderFactory<Gameplay>
-    {
     }
 }
 
