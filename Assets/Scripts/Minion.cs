@@ -14,7 +14,7 @@ public class Minion : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     [Inject] private AIOpponent aIOpponent;
     [Inject] private Gameplay gameplay;
-    private Map map;
+    [Inject] private Map map;
 
 
     private Vector3 gridTargetPosition;
@@ -35,6 +35,10 @@ public class Minion : MonoBehaviour
     }
     private void Update()
     {
+        if (gameplay.GameState == GameState.GAME_STATE_WAITING)
+        {
+            GetObjectInWorld();
+        }
         if (gameplay.GameState == GameState.GAME_STATE_COMBAT)
         {
             if (target == null)
@@ -109,6 +113,17 @@ public class Minion : MonoBehaviour
     //    }
 
     //}
+    private void GetObjectInWorld()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (map.m_Plane.Raycast(ray, out float enter))
+        {
+            Vector3 hitPoint = ray.GetPoint(enter);
+            Vector3 newPos = new Vector3(hitPoint.x, 0, hitPoint.z);
+            transform.position = Vector3.Lerp(transform.position, newPos, 0.1f);
+        }
+
+    }
     private void TryAttackNewTarget()
     {
         //find closest enemy

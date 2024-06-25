@@ -17,12 +17,12 @@ MonoBehaviour:
       minionPrefab: {fileID: 1997296248483302, guid: 9984be23625843a48a44d88aae5669f2,
         type: 3}
     General:
-      minionName: 
+      minionName: 1
       mana: 0
-      health: 0
-      damagePerSecond: 0
-      attackDamage: 0
-      attackSpeed: 0
-      attackRange: 0
+      health: 21
+      damagePerSecond: 4
+      attackDamage: 2
+      attackSpeed: 2
+      attackRange: 5
       attackAreaOfEffect: 0
       skillCastTime: 0

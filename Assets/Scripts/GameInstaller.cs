@@ -13,6 +13,7 @@ public class GameInstaller : MonoInstaller<GameInstaller>
     {
         Container.Bind<Gameplay>().FromComponentInHierarchy().AsSingle();
         Container.Bind<AIOpponent>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<Map>().FromComponentInHierarchy().AsSingle();
 
         Container.BindFactory<Minion, Minion.Factory>()
                   .FromComponentInNewPrefab(settings.minionPrefab)

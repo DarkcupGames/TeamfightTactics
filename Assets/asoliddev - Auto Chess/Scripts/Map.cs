@@ -10,7 +10,7 @@ public class Map : MonoBehaviour
     public static int GRIDTYPE_HEXA_MAP = 2;
     public GridType gridType;
 
-    public static int hexMapSizeX = 7;
+    public static int hexMapSizeX = 5;
     public static int hexMapSizeZ = 8;
     public static int inventorySize = 9;
 
@@ -35,7 +35,7 @@ public class Map : MonoBehaviour
     {
         CreateGridPosition();
         CreateIndicators();
-        HideIndicators();
+        //HideIndicators();
 
         m_Plane = new Plane(Vector3.up, Vector3.zero);
 
