@@ -12,7 +12,7 @@ public class Map : MonoBehaviour
 
     public static int hexMapSizeX = 5;
     public static int hexMapSizeZ = 8;
-    public static int inventorySize = 9;
+    public static int inventorySize = 3;
 
     public Plane m_Plane;
 
@@ -359,7 +359,7 @@ public class Map : MonoBehaviour
         }
 
         
-        for (int x = 0; x < 9; x++)
+        for (int x = 0; x < inventorySize; x++)
         {
            ownIndicatorArray[x].GetComponent<MeshRenderer>().material.color = indicatorDefaultColor;
           // oponentIndicatorArray[x].GetComponent<MeshRenderer>().material.color = indicatorDefaultColor;

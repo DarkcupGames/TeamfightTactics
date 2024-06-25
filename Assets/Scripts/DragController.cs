@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class MinionDrag : MonoBehaviour
+public class DragController : MonoBehaviour
 {
     [Inject] private Map map;
     [SerializeField] private LayerMask layerMask;
@@ -51,8 +51,8 @@ public class MinionDrag : MonoBehaviour
         }
 
     }
-    private void GetObjectInWorld()
+    private void MinionDrag()
     {
-   
+
     }
 }
