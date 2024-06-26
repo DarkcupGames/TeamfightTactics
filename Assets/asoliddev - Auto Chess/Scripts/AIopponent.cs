@@ -11,9 +11,7 @@ public class AIopponent : MonoBehaviour
     public Map map;
     public UIController uIController;
     public GamePlayController gamePlayController;
-
     public GameObject[,] gridChampionsArray;
-
     public Dictionary<ChampionType, int> championTypeCount;
     public List<ChampionBonus> activeBonusList;
 
@@ -22,7 +20,6 @@ public class AIopponent : MonoBehaviour
     public void OnMapReady()
     {
         gridChampionsArray = new GameObject[Map.hexMapSizeX, Map.hexMapSizeZ / 2];
-
         AddRandomChampion();
         // AddRandomChampion();
     }
